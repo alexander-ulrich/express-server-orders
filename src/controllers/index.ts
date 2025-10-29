@@ -1,2 +1,13 @@
-export { default as productController } from "./productController.ts";
-export { default as orderController } from "./orderController.ts";
+export {
+  getAllProducts,
+  createProduct,
+  getProductById,
+  updateProduct,
+  deleteProduct,
+} from "./productController.ts";
+export {
+  getAllOrders,
+  createOrder,
+  getOrderById,
+  deleteOrder,
+} from "./orderController.ts";
