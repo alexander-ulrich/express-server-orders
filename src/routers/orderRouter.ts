@@ -1,3 +1,9 @@
+import {
+  createOrder,
+  deleteOrder,
+  getAllOrders,
+  getOrderById,
+} from "#controllers";
 import { Router } from "express";
 
 const orderRouter = Router();
