@@ -1,5 +1,6 @@
 import type { ErrorRequestHandler } from "express";
 import fs from "node:fs";
+
 const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   console.error("Error", err.stack);
   const date = new Date();
