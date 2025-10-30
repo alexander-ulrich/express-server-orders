@@ -1,36 +1,49 @@
 import { Product } from "#models";
-import type { IProduct } from "#models/Product";
+import type { productInputSchema } from "#schemas";
 import type { RequestHandler } from "express";
+import type z from "zod";
 
-export const getAllProducts: RequestHandler = async (req, res) => {
+type productInputDTO = z.infer<typeof productInputSchema>;
+type productDTO = productInputDTO;
+
+export const getAllProducts: RequestHandler<
+  unknown,
+  productDTO[],
+  unknown
+> = async (req, res) => {
   const products = await Product.find();
-  if (!Product.length) throw new Error("No Products found", { cause: 404 });
+  if (!products.length) throw new Error("No Products found", { cause: 404 });
 
   return res.json(products);
 };
-export const createProduct: RequestHandler = async (req, res) => {
-  const { name, description, amount, price } = req.body as IProduct;
-  if (!name || !amount || !price)
-    throw new Error("Product name, amount and price are required.", {
-      cause: 400,
-    });
-  const product = await Product.create({ name, description, amount, price });
+export const createProduct: RequestHandler<
+  unknown,
+  productDTO,
+  productInputDTO
+> = async (req, res) => {
+  const product = await Product.create<productInputDTO>(req.body);
 
-  return res
-    .status(201)
-    .json({ message: "Product created successfully!", product: product });
+  return res.status(201).json(product);
 };
 
-export const getProductById: RequestHandler = async (req, res) => {
+export const getProductById: RequestHandler<
+  { id: string },
+  productDTO,
+  unknown
+> = async (req, res) => {
   const { id } = req.params;
   const product = await Product.findById(id);
 
   if (!product) throw new Error("Product not found", { cause: 404 });
   return res.json(product);
 };
-export const updateProduct: RequestHandler = async (req, res) => {
+export const updateProduct: RequestHandler<
+  { id: string },
+  productDTO,
+  productInputDTO
+> = async (req, res) => {
   const { id } = req.params;
-  const { name, description, amount, price } = req.body as IProduct;
+  const { name, description, amount, price } = req.body as productDTO;
   const product = await Product.findById(id);
   if (!product) throw new Error("Product not found", { cause: 404 });
 
@@ -40,13 +53,13 @@ export const updateProduct: RequestHandler = async (req, res) => {
   product.price = price;
 
   const updatedProduct = await product.save();
-  return res.json({
-    message: "Product updated successfully!",
-    oldProduct: product,
-    newProduct: updatedProduct,
-  });
+  return res.json(updatedProduct);
 };
-export const deleteProduct: RequestHandler = async (req, res) => {
+export const deleteProduct: RequestHandler<
+  { id: string },
+  { message: string },
+  unknown
+> = async (req, res) => {
   const { id } = req.params;
 
   const product = await Product.findByIdAndDelete(id);
