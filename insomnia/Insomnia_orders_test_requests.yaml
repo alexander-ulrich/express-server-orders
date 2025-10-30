@@ -61,22 +61,43 @@ collection:
         meta:
           id: req_54121b5b76bf4bb98472addd5abac1a1
           created: 1761826700409
-          modified: 1761826961510
+          modified: 1761827756103
           isPrivate: false
           description: ""
           sortKey: -1761826672809
         method: POST
         body:
           mimeType: application/json
-          text: |-
+          text: >-
             {
-            	"products":["6903455c3f12c3891264d95d","690357016d09832ff408d405"],
-            	"totalProducts": 2,
-            	"totalPrice": 139.92
+            	"products":["6903455c3f12c3891264d95d","690357016d09832ff408d405","69035b8a2ace4565be6ce71c"],
+            	"totalProducts": 3,
+            	"totalPrice": 999.99
             }
         headers:
           - name: Content-Type
             value: application/json
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/orders/69035bae2ace4565be6ce71f
+        name: getOrderById
+        meta:
+          id: req_b0b9a1cf21b743e5b129dff3aea7a5fa
+          created: 1761827662588
+          modified: 1761827771237
+          isPrivate: false
+          description: ""
+          sortKey: -1761826672834
+        method: GET
+        headers:
           - name: User-Agent
             value: insomnia/11.6.2
         settings:
@@ -121,7 +142,7 @@ collection:
         meta:
           id: req_17ea4090b45643c2b0d49a444ec8ae0c
           created: 1761821387258
-          modified: 1761826709763
+          modified: 1761827718297
           isPrivate: false
           description: ""
           sortKey: -1761798752542.125
@@ -130,10 +151,10 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"name":"Product2",
-            	"description": "This is Product2",
-            	"amount": 5,
-            	"price": 15.99
+            	"name":"Product3",
+            	"description": "This is Product3",
+            	"amount": 7,
+            	"price": 11.99
             }
         headers:
           - name: Content-Type
@@ -190,6 +211,27 @@ collection:
           description: ""
           sortKey: -1761776274157.25
         method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/products/690357016d09832ff408d405
+        name: getProductById
+        meta:
+          id: req_f5896229d9984c688fdbd8678e789317
+          created: 1761827599171
+          modified: 1761827612106
+          isPrivate: false
+          description: ""
+          sortKey: -1761809991734.5625
+        method: GET
         headers:
           - name: User-Agent
             value: insomnia/11.6.2
