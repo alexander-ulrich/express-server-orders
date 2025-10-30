@@ -2,20 +2,20 @@ import type { ErrorRequestHandler } from "express";
 import fs from "node:fs";
 
 const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
-  console.error("Error", err.stack);
+  process.env.NODE_ENV !== "production" && console.error("Error", err.stack);
   const date = new Date();
   const dateStr = `${date.getFullYear()}-${
     date.getMonth() + 1
   }-${date.getDate()}`;
 
-  if (!fs.existsSync(`./log/${dateStr}-error.log`)) {
+  if (!fs.existsSync(`./logs/${dateStr}-error.log`)) {
     fs.writeFileSync(
-      `./log/${dateStr}-error.log`,
+      `./logs/${dateStr}-error.log`,
       `${date.toLocaleTimeString()} ${err.cause} ${err.stack}`
     );
   } else {
     fs.appendFileSync(
-      `./log/${dateStr}-error.log`,
+      `./logs/${dateStr}-error.log`,
       `\n${date.toLocaleTimeString()} ${err.cause} ${err.stack}`
     );
   }

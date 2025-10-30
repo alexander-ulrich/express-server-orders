@@ -10,19 +10,20 @@ const actionLogger: RequestHandler = (req, res, next) => {
     date.getMonth() + 1
   }-${date.getDate()}`;
 
-  if (!fs.existsSync(`./log/${dateStr}-action.log`)) {
+  if (!fs.existsSync(`./logs/${dateStr}-action.log`)) {
     fs.writeFileSync(
-      `./log/${dateStr}-action.log`,
+      `./logs/${dateStr}-action.log`,
       `${date.toLocaleTimeString()} ${action} ${url} ${userIP}`
     );
   } else {
     fs.appendFileSync(
-      `./log/${dateStr}-action.log`,
+      `./logs/${dateStr}-action.log`,
       `\n${date.toLocaleTimeString()} ${action} ${url} ${userIP}`
     );
   }
 
-  console.log(`${dateStr}: ${action} request on ${url} from ${userIP}`);
+  process.env.NODE_ENV !== "production" &&
+    console.log(`${dateStr}: ${action} request on ${url} from ${userIP}`);
   next();
 };
 
