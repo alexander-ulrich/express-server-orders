@@ -19,7 +19,7 @@ collection:
         meta:
           id: req_c20adae48cc747e195ff7c902294059c
           created: 1761826670264
-          modified: 1761826720087
+          modified: 1761839705045
           isPrivate: false
           description: ""
           sortKey: -1761826672859
@@ -35,12 +35,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/orders/690359056d09832ff408d412
+      - url: http://localhost:3000/orders/69038a5e10448b7e0a117a9f
         name: deleteOrder
         meta:
           id: req_3ac91b3edf0c458ea3775d6da155abb7
           created: 1761826684698
-          modified: 1761827150776
+          modified: 1761839724815
           isPrivate: false
           description: ""
           sortKey: -1761826672759
@@ -61,7 +61,7 @@ collection:
         meta:
           id: req_54121b5b76bf4bb98472addd5abac1a1
           created: 1761826700409
-          modified: 1761827756103
+          modified: 1761837665947
           isPrivate: false
           description: ""
           sortKey: -1761826672809
@@ -70,9 +70,9 @@ collection:
           mimeType: application/json
           text: >-
             {
-            	"products":["6903455c3f12c3891264d95d","690357016d09832ff408d405","69035b8a2ace4565be6ce71c"],
-            	"totalProducts": 3,
-            	"totalPrice": 999.99
+            	"products":["6903455c3f12c3891264d95d","690357016d09832ff408d405","69035b8a2ace4565be6ce71c", "6903455c3f12c3891264d95d"],
+            	"totalProducts": 4,
+            	"totalPrice": 1999.99
             }
         headers:
           - name: Content-Type
@@ -121,7 +121,7 @@ collection:
         meta:
           id: req_db47c87f701e413091dbc9f9a74741b8
           created: 1761821196479
-          modified: 1761821638945
+          modified: 1761839765971
           isPrivate: false
           description: ""
           sortKey: -1761821230927
@@ -142,7 +142,7 @@ collection:
         meta:
           id: req_17ea4090b45643c2b0d49a444ec8ae0c
           created: 1761821387258
-          modified: 1761827718297
+          modified: 1761838364863
           isPrivate: false
           description: ""
           sortKey: -1761798752542.125
@@ -151,10 +151,11 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"name":"Product3",
-            	"description": "This is Product3",
-            	"amount": 7,
-            	"price": 11.99
+            	"name":"Product4",
+            	"description": "This is Product4",
+            	"amount": 123,
+            	"price": 14.99
+            	
             }
         headers:
           - name: Content-Type
@@ -174,7 +175,7 @@ collection:
         meta:
           id: req_1742e0015fd44c70af45d048078ac920
           created: 1761826336831
-          modified: 1761826711688
+          modified: 1761839475854
           isPrivate: false
           description: ""
           sortKey: -1761787513349.6875
@@ -183,8 +184,8 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"name":"Product2_updated",
-            	"description": "This is the updated Product2",
+            	"name":"Product2",
+            	"description": "This is Product2",
             	"amount": 3,
             	"price": 19.99
             }
@@ -201,12 +202,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/products/690357016d09832ff408d405
+      - url: http://localhost:3000/products/69038779e748b7a8e0104e1b
         name: deleteProduct
         meta:
           id: req_d14068eeca284b13a2d836582b025e0b
           created: 1761826532085
-          modified: 1761826652279
+          modified: 1761839444462
           isPrivate: false
           description: ""
           sortKey: -1761776274157.25
@@ -227,7 +228,7 @@ collection:
         meta:
           id: req_f5896229d9984c688fdbd8678e789317
           created: 1761827599171
-          modified: 1761827612106
+          modified: 1761838913219
           isPrivate: false
           description: ""
           sortKey: -1761809991734.5625
