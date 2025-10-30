@@ -1,8 +1,7 @@
-import { Document, model, Schema } from "mongoose";
-import Product from "./Product.ts";
+import { Document, model, Schema, Types } from "mongoose";
 
 export interface IOrder extends Document {
-  products: [];
+  products: string[];
   totalProducts: number;
   totalPrice: number;
   createdAt?: Date;
@@ -12,7 +11,7 @@ export interface IOrder extends Document {
 const orderSchema = new Schema<IOrder>(
   {
     products: {
-      type: [Schema.Types.ObjectId],
+      type: [Types.ObjectId],
       ref: "Product",
       default: [],
       required: true,

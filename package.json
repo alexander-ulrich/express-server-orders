@@ -9,6 +9,10 @@
       "development": "./src/models/index.ts",
       "default": "./dist/models/index.js"
     },
+    "#schemas": {
+      "development": "./src/schemas/index.ts",
+      "default": "./src/schemas/index.js"
+    },
     "#routers": {
       "development": "./src/routers/index.ts",
       "default": "./dist/routers/index.js"
@@ -38,11 +42,13 @@
   "license": "ISC",
   "dependencies": {
     "express": "^5.1.0",
-    "mongoose": "^8.19.2"
+    "mongoose": "^8.19.2",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@types/express": "^5.0.5",
     "@types/node": "^24.9.2",
+    "@types/mongoose": "^5.11.96",
     "typescript": "^5.9.3"
   }
 }
